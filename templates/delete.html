@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Blog</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Blog: {{ blogs.title }}</h1>
+        <p>Are you sure you want to delete this blog?</p>
+        <form action="{% url 'delete' blogs.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete</button>
+            <a href="{% url 'retrieve' blogs.id %}">No, Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blogs.title }}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ blogs.title }}</h1>
+        <p>{{ blogs.description }}</p>
+        {% if blogs.image %}
+            <img src="{{ blogs.image.url }}" alt="{{ blogs.title }}">
+        {% endif %}
+        <p>Author: {{ blogs.author.username }}</p>
+        <a href="{% url 'update' blogs.id %}">Edit</a> | 
+        <a href="{% url 'delete' blogs.id %}">Delete</a> | 
+        <a href="{% url 'index' %}">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Homepage</title>
+</head>
+<body>
+    <div class="container">
+        <h1>All Blogs</h1>
+        <a href="{% url 'create' %}">Create New Blog</a>
+        <ul>
+            {% for blog in blogs %}
+                <li>
+                    <h2><a href="{% url 'retrieve' blog.id %}">{{ blog.title }}</a></h2>
+                    <p>{{ blog.description|truncatewords:20 }}</p>
+                </li>
+            {% empty %}
+                <li>No blogs available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
